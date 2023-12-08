@@ -41,10 +41,11 @@ if __name__ == "__main__":
 
     # Récupération des données météo
     weather = get_weather(city)
-    
+
     # Données météo
     temperature = weather["main"]["temp"]
     weather_description = weather["weather"][0]["description"]
+    Ville = weather['name']
 
     # Envoi du bulletin météo par mail
-    send_mail("jbastruz@protonmail.com", "Météo à Bruxelles", "La température à Bruxelles est de {} degrés. Il fait {}.".format(temperature, weather_description))
+    send_mail("jbastruz@protonmail.com", "Météo à {}".format(Ville), "La température à {} est de {} degrés. Il fait {}.".format(Ville, temperature, weather_description))
